@@ -27,7 +27,7 @@ function eliminarPelicula(req,res){
 
 // UPDATE
 function modificarPelicula(req, res){
-    const nombre = req.params.nombre;
+    const nombre = req.body.nombre;
     const nuevaInfo = req.body;
     Pelicula.findOne({nombre : nombre})
     .then(pelicula => {
