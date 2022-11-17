@@ -26,16 +26,18 @@ function eliminarPelicula(req,res){
 }
 
 // UPDATE
-function modificarPelicula(req, res){
-    const nombre = req.body.nombre;
+async function modificarPelicula(req, res){
+    const nombre = {nombre : req.params.nombre} ;
     const nuevaInfo = req.body;
-    Pelicula.findOne({nombre : nombre})
-    .then(pelicula => {
-        pelicula = req.body
-        pelicula.save()
-        .then( data => {
-            res.status(200).send(data);
-        })
+
+    const datoprueba = await Pelicula.findOneAndUpdate(nombre, nuevaInfo)
+
+    console.log(datoprueba)
+   
+    Pelicula.findOneAndUpdate(nombre, nuevaInfo)
+    .then(movie => {
+            console.log(movie)
+            res.status(200).send(movie);
     })
 }
 
