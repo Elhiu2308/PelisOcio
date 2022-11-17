@@ -15,9 +15,8 @@ mongoose.connect(process.env.MONGOURI);
 
 
 
-// app.set('puerto', process.env.PORT || 4001);
 
-app.use('/v1', require('./src/routes'));
+app.use('/inicio', require('./src/routes'));
 
 app.listen(process.env.PORT, () => console.log("El servidor esta escuchando"))
 
