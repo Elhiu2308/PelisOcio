@@ -19,17 +19,17 @@ function crearPelicula(req, res){
 
 // DELETE
 function eliminarPelicula(req,res){
-    const name = req.body.nombre;
-    Pelicula.findOneAndDelete({nombre : name})
+    const nombre = req.body.nombre;
+    Pelicula.findOneAndDelete({nombre : nombre})
     .then(data => res.send(data))
     .catch(err => res.status(500).send(err))
 }
 
 // UPDATE
 function modificarPelicula(req, res){
-    const name = req.params.nombre;
+    const nombre = req.params.nombre;
     const nuevaInfo = req.body;
-    Pelicula.findOne({nombre : name})
+    Pelicula.findOne({nombre : nombre})
     .then(pelicula => {
         pelicula = req.body
         pelicula.save()

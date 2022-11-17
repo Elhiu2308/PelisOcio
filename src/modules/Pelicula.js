@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+// const Schema = mongoose.Schema;
 
 const PeliculaSchema = mongoose.Schema({
     nombre: {type: String, require: true, unique: true},
